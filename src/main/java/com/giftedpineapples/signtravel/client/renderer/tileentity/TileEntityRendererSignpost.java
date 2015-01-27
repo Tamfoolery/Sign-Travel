@@ -8,10 +8,25 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import org.lwjgl.opengl.GL11;
 
+import java.util.ArrayList;
+
 public class TileEntityRendererSignpost extends TileEntitySpecialRenderer {
 
 	private final ModelSignpost modelSignpost = new ModelSignpost();
 	float pixel = 1F/16F;
+
+	private ArrayList<String> locations = new ArrayList<String>() {{
+		add("Blandare");
+		add("Kaer Trolde");
+		add("Arinbjorn");
+		add("Yustianna's Grotto");
+	}};
+	private ArrayList<Float> angles = new ArrayList<Float>() {{
+		add(0F);
+		add(0F);
+		add(0F);
+		add(0F);
+	}};
 
 	@Override
 	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float tick)
@@ -56,31 +71,47 @@ public class TileEntityRendererSignpost extends TileEntitySpecialRenderer {
 
 			GL11.glPopMatrix();
 
-			/**
-			 * Render Sign 1
-			 */
-			GL11.glPushMatrix();
+			for (int i = 0; i < locations.size(); i++)
+			{
+				float pos;
 
-			// Scale, Translate, Rotate
-			GL11.glScalef(1.0F, 1.0F, 1.0F);
-			GL11.glTranslatef((float) x + 0.5F, (float) y + 0.0F, (float) z + 0.5F);
-			GL11.glRotatef(-45F, 0F, 1F, 0F);
+				switch (i)
+				{
+					case 0:
+						pos = 3.9F;
+						break;
+					case 1:
+						pos = 3.425F;
+						break;
+					case 2:
+						pos = 2.95F;
+						break;
+					case 3:
+						pos = 2.5F;
+						break;
+					default:
+						pos = 3.9F;
+				}
 
-			// Bind Texture
-			this.bindTexture(Textures.Model.SIGNPOST);
+				GL11.glPushMatrix();
 
-			// Render Sign
-			modelSignpost.render("Sign1");
+				GL11.glScalef(1.0F, 1.0F, 1.0F);
+				GL11.glTranslatef((float) x + 0.5F, (float) y + 0.0F, (float) z + 0.5F);
+				GL11.glRotatef(-angles.get(i), 0F, 1F, 0F);
 
-			renderString("Blandare", 3.9F, true);
+				this.bindTexture(Textures.Model.SIGNPOST);
 
-			GL11.glPopMatrix();
+				int sign = i + 1;
+				modelSignpost.render("Sign" + sign);
+				renderString(locations.get(i), pos, true);
+
+				GL11.glPopMatrix();
+			}
 		}
 	}
 
 	private void renderString(String string, float y, boolean isDirectionSign)
 	{
-		// Render Font
 		FontRenderer fontRenderer = this.func_147498_b();
 		float f1 = 0.6666667F;
 		float f3 = 0.014666668F * f1;
@@ -95,7 +126,11 @@ public class TileEntityRendererSignpost extends TileEntitySpecialRenderer {
 
 		// string, x, y, color, dropShadow (nullable)
 		fontRenderer.drawString(string, -fontRenderer.getStringWidth(string) / 2, 0, 0);
+		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 
+		GL11.glTranslatef(0F, 0F, -7.5F);
+		GL11.glRotatef(180F, 0F, 1F, 0F);
+		fontRenderer.drawString(string, -fontRenderer.getStringWidth(string) / 2, 0, 0);
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 	}
 
