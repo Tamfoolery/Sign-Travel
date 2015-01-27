@@ -18,7 +18,7 @@ public class BlockSignpost extends BlockST implements ITileEntityProvider {
 
 		float pixel = 1F/16F;
 
-		this.setBlockBounds(12 * pixel / 2, 0 * pixel / 2, 12 * pixel / 2, 1 - 12 * pixel / 2, 3 - 0 * pixel / 2, 1 - 12 * pixel / 2);
+		this.setBlockBounds(12 * pixel / 2, 0 * pixel / 2, 12 * pixel / 2, 1 - 12 * pixel / 2, 3 - 0 * pixel / 2 + pixel * 2, 1 - 12 * pixel / 2);
 	}
 
 	@Override

@@ -3,7 +3,7 @@ A fast travel / map mod inspired by the system in The Witcher 3: Wild Hunt
 
 Each signpost can be named
 
-Signposts will automatically show signs pointing to the 4 nearest other signposts.
+Signposts will automatically show signs pointing to the 4 nearest other signposts (perhaps also showing block distance between the two signs as the crow files).
 
 Left clicking on the signpost will bring up a map showing the locations of all the other sign posts. Clicking on a signpost location will prompt a "Fast travel to this location" dialog box. Clicking "Yes" will teleport the player to that signposts location.
 
