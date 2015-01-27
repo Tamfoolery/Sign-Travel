@@ -1,6 +1,8 @@
 package com.giftedpineapples.signtravel;
 
 import com.giftedpineapples.signtravel.handler.ConfigHandler;
+import com.giftedpineapples.signtravel.init.ModBlocks;
+import com.giftedpineapples.signtravel.init.ModTileEntities;
 import com.giftedpineapples.signtravel.proxy.IProxy;
 import com.giftedpineapples.signtravel.reference.Reference;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -27,15 +29,14 @@ public class SignTravel {
 		FMLCommonHandler.instance().bus().register(new ConfigHandler());
 
 		// Register Items & Blocks
-//		ModItems.init();
-//		ModBlocks.init();
+		ModBlocks.init();
 	}
 
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event)
 	{
 		// Init Tile Entities
-//		ModTileEntities.init();
+		ModTileEntities.init();
 
 		// Init custom rendering and pre-load textures (client only)
 		proxy.initRenderingAndTextures();
