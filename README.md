@@ -1,7 +1,7 @@
 # Sign Travel
 A fast travel / map mod inspired by the system in The Witcher 3: Wild Hunt
 
-Each signpost can be named (TODO: update model to show name of signpost at top)
+Each signpost can be named
 
 Signposts will automatically show signs pointing to the 4 nearest other signposts.
 
