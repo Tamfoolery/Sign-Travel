@@ -1,0 +1,18 @@
+[
+    {
+        "modid": "signtravel",
+        "name": "Sign Travel",
+        "description": "A fast travel / map mod inspired by the system in The Witcher 3: Wild Hunt",
+        "version": "0.1.0",
+        "mcversion": "1.7.10",
+        "url": "http://minecraft.giftedpineapples.com/",
+        "updateUrl": "",
+        "authorList": [
+            "Tamfoolery"
+        ],
+        "credits": "",
+        "logoFile": "",
+        "screenshots": [],
+        "dependencies": []
+    }
+]
