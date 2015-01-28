@@ -23,9 +23,9 @@ public class TileEntityRendererSignpost extends TileEntitySpecialRenderer {
 	}};
 	private ArrayList<Float> angles = new ArrayList<Float>() {{
 		add(0F);
-		add(0F);
-		add(0F);
-		add(0F);
+		add(198F);
+		add(45F);
+		add(120F);
 	}};
 
 	@Override
@@ -126,12 +126,15 @@ public class TileEntityRendererSignpost extends TileEntitySpecialRenderer {
 
 		// string, x, y, color, dropShadow (nullable)
 		fontRenderer.drawString(string, -fontRenderer.getStringWidth(string) / 2, 0, 0);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F); // Reset colour because the font renderer doesn't for some reason...
 
-		GL11.glTranslatef(0F, 0F, -7.5F);
-		GL11.glRotatef(180F, 0F, 1F, 0F);
-		fontRenderer.drawString(string, -fontRenderer.getStringWidth(string) / 2, 0, 0);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+		if (isDirectionSign)
+		{
+			GL11.glTranslatef(0F, 0F, -7.5F);
+			GL11.glRotatef(180F, 0F, 1F, 0F);
+			fontRenderer.drawString(string, -fontRenderer.getStringWidth(string) / 2, 0, 0);
+			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+		}
 	}
 
 }
